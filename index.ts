@@ -12,26 +12,26 @@ bot.command("start", async (ctx) => {
       const file = await getFile(ctx.match);
       if (!file) {
         await ctx.reply(
-          "Code not found! Please make sure your code is correct."
+          "KODE TIDAK VALID, PASTIKAN KODEMU VALID BRO"
         );
         return;
       }
-      await ctx.reply("Getting your file, please wait a moment");
+      await ctx.reply("BENTAR GW BIKININ DULU KOPINYA...");
       await sendMediaFunction(ctx, file);
       return;
     }
     return ctx.reply(
-      "Welcome to file sharing telegram bot! Just upload your file that you want to share."
+      "SELAMAT DATANG< GW ASSISTEN YANG MAHA KUASA PAPANDA, SILAHKAN UPLOAD FILE LO..."
     );
   } catch (error) {
     console.error(error);
-    await ctx.reply("Something wrong! Please try again :(");
+    await ctx.reply("GABISA TOT, yang bener.. :(");
   }
 });
 
 bot.on("message:text", async (ctx) => {
   await ctx.reply(
-    "I don't understand your input :(. Please directly upload your file that you want to share :D"
+    "GAUSAH RIBET GITU COK, UPLOADNYA FILE DOANG JANGAN YANG LAEN"
   );
 });
 
@@ -40,11 +40,11 @@ bot.on("message:file", async (ctx) => {
     const file = await ctx.getFile();
     const fileCode = await storeFile(file.file_id);
     return ctx.reply(
-      `Your file has been stored with code: ${fileCode}. You can share the file using this link https://t.me/${botID}?start=${fileCode}`
+      `FILE LO TERSIMPAN ${fileCode}. INI LINK LU https://t.me/${botID}?start=${fileCode}`
     );
   } catch (error) {
     console.error(error);
-    await ctx.reply("Something wrong! Please try again :(");
+    await ctx.reply("GABISA TOT, ELU SALAH :(");
   }
 });
 
@@ -55,10 +55,10 @@ if (process.env.NODE_ENV === "production") {
 
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
-    console.log(`Bot listening on port ${PORT}`);
+    console.log(`bentar ${PORT}`);
   });
 } else {
   bot.start();
 }
 
-console.log("The bot is running 🚀️🚀️🚀️");
+console.log("GW MASIH HIDUP KOK..");
