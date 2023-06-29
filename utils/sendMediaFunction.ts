@@ -16,7 +16,7 @@ async function sendMediaFunction(ctx: Context, file: any) {
     return await ctx.replyWithDocument(fileId);
   }
 
-  throw Error("Type not found");
+  throw Error("GW GABISA BRO");
 }
 
 export default sendMediaFunction;
